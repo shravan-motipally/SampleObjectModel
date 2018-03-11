@@ -1,0 +1,8 @@
+com\barclaycardus\conveyor\ApplicationTest.class
+com\barclaycardus\conveyor\utils\BagTest.class
+com\barclaycardus\conveyor\utils\RouteTest.class
+com\barclaycardus\conveyor\utils\DepartureRecordTest.class
+com\barclaycardus\conveyor\vo\BaggerTest.class
+com\barclaycardus\conveyor\utils\TerminalTest.class
+com\barclaycardus\conveyor\vo\ConveyorTest.class
+com\barclaycardus\conveyor\vo\DepartureScheduleTest.class

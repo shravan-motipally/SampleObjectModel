@@ -1,0 +1,16 @@
+# Section: Flights
+A1 A2 5
+MainEntry A1 t
+A2 A3 2
+A3 A1 1
+BaggageClaim MainEntry 1
+# Section: Departure Schedule
+BOE777 A1 JFK 09:00
+UAE747 A3 IAH 14:30
+# Section: Bags
+
+
+
+
+
+
