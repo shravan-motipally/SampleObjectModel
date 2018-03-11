@@ -1,6 +1,6 @@
 # Section: Flights
 A1 A2 5
-MainEntry A1 t
+MainEntry A1 3
 A2 A3 2
 A3 A1 1
 BaggageClaim MainEntry 1

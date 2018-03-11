@@ -40,11 +40,42 @@ public class Application
             File input = new File(args[0]);
             if (input.exists() && !input.isDirectory())
                 INPUT_FILE_PATH = input.getAbsolutePath();
-            else
+            else {
                 System.out.println(getUsage());
+            }
 
         }
 
+        run();
+    }
+
+    private static String getUsage()
+    {
+        String usage =  "*************\n" +
+                "Bagger Usage\n" +
+                "*************\n" +
+                "conveyor <INPUT_FILE_PATH>" +
+                "where <INPUT_FILE_PATH> contains a file as follows:"+
+                "# Section: A weighted bi-directional graph describing the conveyor system\n" +
+                "Format: <Node 1> <Node 2> <travel_time>\n" +
+                "              \n" +
+                "# Section: Departure list Format:\n" +
+                "<flight_id> <flight_gate> <destination> <flight_time: HH:SS>\n" +
+                "              \n" +
+                "# Section: Bag list format:\n" +
+                "<bag_number> <entry_point> <flight_id>\n";
+
+        return usage;
+    }
+
+    private static void logException(Exception e)
+    {
+        logger.error(e.getClass().getName() + " caught.  Detail:\n" + e.getMessage() + "\n");
+        System.out.println(getUsage());
+    }
+
+    private static void run()
+    {
         Conveyor conveyor = new Conveyor();
         Bagger bagger = Bagger.getInstance();
         DepartureSchedule schedule = DepartureSchedule.getInstance();
@@ -119,30 +150,5 @@ public class Application
                     reader.close();
             }catch (IOException io){}
         }
-    }
-
-    private static String getUsage()
-    {
-        String usage =  "*************\n" +
-                "Bagger Usage\n" +
-                "*************\n" +
-                "conveyor <INPUT_FILE_PATH>" +
-                "where <INPUT_FILE_PATH> contains a file as follows:"+
-                "# Section: A weighted bi-directional graph describing the conveyor system\n" +
-                "Format: <Node 1> <Node 2> <travel_time>\n" +
-                "              \n" +
-                "# Section: Departure list Format:\n" +
-                "<flight_id> <flight_gate> <destination> <flight_time: HH:SS>\n" +
-                "              \n" +
-                "# Section: Bag list format:\n" +
-                "<bag_number> <entry_point> <flight_id>\n";
-
-        return usage;
-    }
-
-    private static void logException(Exception e)
-    {
-        logger.error(e.getClass().getName() + " caught.  Detail:\n" + e.getMessage() + "\n");
-        System.out.println(getUsage());
     }
 }
